@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
 
 class ClickMe extends Component {
+    state = {
+        hover: false
+    }
+
+    hoverEnter = () => {
+        this.setState({hover: true})
+    }
+
+    hoverLeave = () => {
+        this.setState({hover: false})
+    }
+
     render() {
         const buttonStyles = {
             borderRadius: "5px",
@@ -11,12 +23,12 @@ class ClickMe extends Component {
             color: "#fff",
             position: "relative",
             display: "inline-block",
-            backgroundColor: "#55acee",
+            backgroundColor: this.state.hover ? "#6FC6FF" : "#55acee",
             boxShadow: "0px 5px 0px 0px #3C93D5"
           };
         return (
             <div>
-                <a href="#" style={buttonStyles}>Click me!</a>
+                <a href="#" onMouseEnter={this.hoverEnter} onMouseLeave={this.hoverLeave} style={buttonStyles}>Click me!</a>
             </div>
         )
     }
