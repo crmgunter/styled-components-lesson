@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const Button = styled.a`
   border-radius: 5px;
@@ -41,6 +41,19 @@ const InfoButton = styled(Button)`
   }
 `
 
+const rotate360 = keyframes`
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+`
+
+const RotatingDiv = styled.div`
+  animation: ${rotate360} 2s infinite;
+`
+
 
 
 class ClickMe extends Component {
@@ -48,7 +61,7 @@ class ClickMe extends Component {
 
         return (
             <div>
-                <Button>Click me!</Button>
+                <RotatingDiv><Button>Click me!</Button></RotatingDiv>
                 <ErrorButton>Error</ErrorButton>
                 <SuccessButton>Success</SuccessButton>
                 <InfoButton>Info</InfoButton>
