@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { pulse, slideInRight } from 'react-animations'
 
 const Button = styled.a`
   border-radius: 5px;
@@ -54,7 +55,16 @@ const RotatingDiv = styled.div`
   animation: ${rotate360} 2s infinite;
 `
 
+const pulseAnimation = keyframes`${pulse}`
 
+const PulsingDiv = styled.div`
+  animation: ${pulseAnimation} 2s infinite;
+`
+const slideInRightAnimation = keyframes`${slideInRight}`
+
+const RightSlideDiv = styled.div`
+  animation: ${slideInRightAnimation} 2s infinite;
+`
 
 class ClickMe extends Component {
     render() {
@@ -62,8 +72,8 @@ class ClickMe extends Component {
         return (
             <div>
                 <RotatingDiv><Button>Click me!</Button></RotatingDiv>
-                <ErrorButton>Error</ErrorButton>
-                <SuccessButton>Success</SuccessButton>
+                <PulsingDiv><ErrorButton>Error</ErrorButton></PulsingDiv>
+                <RightSlideDiv><SuccessButton>Success</SuccessButton></RightSlideDiv>
                 <InfoButton>Info</InfoButton>
             </div>
         )
